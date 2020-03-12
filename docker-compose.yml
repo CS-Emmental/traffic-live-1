@@ -1,0 +1,25 @@
+version: "3"
+services:
+  wireshark:
+    build:
+      context: ./wireshark
+      dockerfile: Dockerfile
+    environment:
+      - HOST=0.0.0.0
+    ports:
+      - 14500:14500
+    restart: 
+      unless-stopped
+    privileged: true
+
+
+  selenium:
+    build:
+      context: ./selenium
+      dockerfile: Dockerfile
+    environment:
+      - HOST=0.0.0.0
+  web:
+    build: ./server
+    ports:
+      - "5000:5000"
