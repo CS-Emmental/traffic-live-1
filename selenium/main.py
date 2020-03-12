@@ -59,7 +59,7 @@ def launch_request():
     )
     logging.info("Prepared chrome options..")
     #Wait for the Wireshark docker to run
-    time.sleep(15)
+    time.sleep(30)
     browser = webdriver.Chrome(options=chrome_options)
     logging.info("Initialized chrome browser..")
     # First request to set the domain and be able to add cookies after
