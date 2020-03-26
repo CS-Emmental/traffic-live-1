@@ -15,23 +15,29 @@ url_to_request = [
 ]
 cookies = [
     {"name": "username", "value": "admin"},
-    {"name": "session", "value": "image_this_to_be_a_complicated_token_for_a_user_session"},
-    {"name": "session", "value": "image_this_to_be_a_complicated_token_for_the_admin_session"},
+    {
+        "name": "session",
+        "value": "imagine_this_to_be_a_complicated_token_for_a_user_session",
+    },
+    {
+        "name": "session",
+        "value": "imagine_this_to_be_a_complicated_token_for_the_admin_session",
+    },
 ]
 
 
 def request_in_order(driver, time_between_request: int = 1):
     for cookie in cookies:
-        driver.add_cookie({'name':'foo','value':'bar'})
+        driver.add_cookie({"name": "foo", "value": "bar"})
         for url in url_to_request:
             driver.get(url)
             logging.info("Accessed %s ..", url)
             logging.info("Page title: %s", driver.title)
-        #driver.delete_all_cookies()
+        # driver.delete_all_cookies()
         time.sleep(time_between_request)
 
 
-def request_random(driver,number_of_request: int = 1, time_between_request: int = 1):
+def request_random(driver, number_of_request: int = 1, time_between_request: int = 1):
     for _ in range(0, number_of_request):
         driver.add_cookie(random.choice(cookies))
         url_requested = random.choice(url_to_request)
@@ -58,7 +64,7 @@ def launch_request():
         },
     )
     logging.info("Prepared chrome options..")
-    #Wait for the Wireshark docker to run
+    # Wait for the Wireshark docker to run
     time.sleep(30)
     browser = webdriver.Chrome(options=chrome_options)
     logging.info("Initialized chrome browser..")
@@ -67,9 +73,9 @@ def launch_request():
 
     while True:
         request_random(browser)
-   
-    #browser.quit()
-    #display.stop()
+
+    # browser.quit()
+    # display.stop()
 
 
 if __name__ == "__main__":

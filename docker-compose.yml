@@ -8,10 +8,8 @@ services:
       - HOST=0.0.0.0
     ports:
       - 14500:14500
-    restart: 
-      unless-stopped
+    restart: unless-stopped
     privileged: true
-
 
   selenium:
     build:
@@ -22,4 +20,4 @@ services:
   web:
     build: ./server
     ports:
-      - "5000:5000"
+      - "5001:5000"
