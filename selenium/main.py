@@ -15,8 +15,8 @@ url_to_request = [
 ]
 cookies = [
     {"name": "username", "value": "admin"},
-    {"name": "session", "value": "image_this_to_be_a_complicated_token_for_a_user_session"},
-    {"name": "session", "value": "image_this_to_be_a_complicated_token_for_the_admin_session"},
+    {"name": "session", "value": "imagine_this_to_be_a_complicated_token_for_a_user_session"},
+    {"name": "session", "value": "imagine_this_to_be_a_complicated_token_for_the_admin_session"},
 ]
 
 
